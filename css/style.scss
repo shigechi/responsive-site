@@ -1,0 +1,148 @@
+@import "compass";
+@import url(https://fonts.googleapis.com/css?family=Lora);
+// font-family
+$baseFontFamily :"游ゴシック", YuGothic, "メイリオ",Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+// colors
+$baseColor: #ffffff;
+$subColor: #ebe7de;
+$keyColor: #d2c8bc;
+$titleFontColor: #5f2c0a;
+$fontColor: #4c4c4c;
+
+
+/* Base
+------------------------------------------------------------*/
+html{ font-size: 62.5%; }
+
+body{
+  color: $fontColor;
+  font-size: 1.4rem;
+  font-family:$baseFontFamily;
+  line-height:1.6;
+  letter-spacing: 0.1em; 
+  background-color: $baseColor;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Align
+------------------------------------------------------------*/
+.text-center {
+  text-align: center;
+}
+
+/* Layout
+------------------------------------------------------------*/
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Font
+------------------------------------------------------------*/
+.lora {
+  font-family: 'Lora', serif;
+  margin-bottom: 15px;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+// CoverImage
+.cover-image {
+  background-image: url("../images/eggs_benedict.jpg");
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Contents
+------------------------------------------------------------*/
+// Common Styles
+
+section {
+  padding: 60px 0;
+  .container {
+    width: 90%;
+    @extend .block-center;
+  }
+  h1 {
+    margin-bottom: 16px;
+    font-size: 2rem;
+    color: $titleFontColor;
+  }
+  h2 {
+    @extend .lora;
+    font-size: 2rem;
+    @extend .uppercase;
+  }
+}
+
+// Contents
+#contents {
+  background-color: $subColor;
+  .container {
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(column);
+  }
+  .contents-box {
+    @include flex(1);
+    margin: 10px 0;
+    padding: 20px;
+    background-color: $baseColor;
+    @include border-radius(4px);
+    @include box-sizing(border-box);
+  }
+}
+
+// desktop
+@media (min-width: 769px) {
+
+  // Contents
+  #contents {
+    .container {
+      display: flex;
+      @include flex-direction(row);
+      justify-content: space-between;
+    }
+    .contents-box {
+      margin: 0 10px;
+    }
+  }
+}
+
+// Contact
+#contact{
+  background-color: $baseColor;
+  h3 {
+    color: $fontColor;
+    margin-top: 16px;
+  }
+  a {
+    display: block;
+    margin: 8px auto 16px;
+    padding: 5px 10px;
+    width: 200px;
+    height: 25px;
+    text-align: center;
+    color: #FFF;
+    background-color: $keyColor;
+    @include border-radius(10px);
+    @media (min-width: 769px) {
+      &:hover {
+        background-color: darken($keyColor, 10%);
+      }
+      &:active {
+        background-color: lighten($keyColor, 10%);
+      }
+    }
+  }
+}
+
+// desktop
